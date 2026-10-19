@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Меню — Зерне</title>
+<meta name="description" content="Меню кофейни «Зерне»: кофе классика, авторские напитки, матча и какао, завтраки до 12:00. Предзаказ навынос без очереди.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Lora:ital,wght@0,500;1,500&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="container header__inner">
+    <a class="logo" href="index.html" aria-label="Зерне — на главную"><svg aria-hidden="true"><use href="img/icons.svg#bean"/></svg>зерне</a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="menu.html" aria-current="page">Меню</a><a href="index.html#preorder">Предзаказ</a><a href="index.html#breakfast">Завтраки</a><a href="index.html#events">События</a><a href="index.html#contacts">Контакты</a>
+    </nav>
+    <div class="header__actions">
+      <span class="badge js-open-badge">Открыто до 21:00</span>
+      <a class="round" href="#cart" aria-label="Корзина"><svg class="icon" aria-hidden="true"><use href="img/icons.svg#bag"/></svg><span class="count js-cart-count" data-zero></span></a>
+      <a class="btn btn--primary btn--m" href="checkout.html">Оформить заказ</a>
+      <button class="round burger js-burger" type="button" aria-label="Открыть меню" aria-controls="mobile-nav"><svg class="icon" aria-hidden="true"><use href="img/icons.svg#burger"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <div class="mobile-nav__top"><a class="logo" href="index.html"><svg aria-hidden="true"><use href="img/icons.svg#bean"/></svg>зерне</a><button class="round js-nav-close" type="button" aria-label="Закрыть меню"><svg class="icon" aria-hidden="true"><use href="img/icons.svg#close"/></svg></button></div>
+  <nav class="mobile-nav__links" aria-label="Мобильная навигация"><a href="menu.html">Меню</a><a href="index.html#preorder">Предзаказ</a><a href="index.html#breakfast">Завтраки</a><a href="index.html#events">События</a><a href="index.html#contacts">Контакты</a></nav>
+  <span class="badge js-open-badge" style="justify-self:start">Открыто до 21:00</span>
+  <a class="btn btn--primary btn--block" href="checkout.html">Оформить заказ</a>
+</div>
+
+<main>
+  <div class="container page-head">
+    <nav class="crumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a> &nbsp;/&nbsp; Меню</nav>
+    <div class="page-head__row">
+      <h1 class="display">Меню</h1>
+      <p class="lead">Всё готовим при тебе. Закажи заранее — и заберёшь без очереди.</p>
+    </div>
+    <div class="filters" aria-label="Фильтры меню">
+      <button class="chip" type="button" data-cat-filter="all" aria-pressed="true">Все</button>
+      <button class="chip" type="button" data-cat-filter="classic" aria-pressed="false">Кофе классика</button>
+      <button class="chip" type="button" data-cat-filter="author" aria-pressed="false">Авторские</button>
+      <button class="chip" type="button" data-cat-filter="nocoffee" aria-pressed="false">Не кофе</button>
+      <button class="chip" type="button" data-cat-filter="breakfast" aria-pressed="false">Завтраки</button>
+      <span class="filters__sep" aria-hidden="true"></span>
+      <button class="chip chip--outline" type="button" data-toggle="nomilk" aria-pressed="false">Без молока</button>
+      <button class="chip chip--outline" type="button" data-toggle="isnew" aria-pressed="false">Новинки</button>
+    </div>
+  </div>
+  <div class="container menu-layout">
+    <div class="catalog" id="catalog"></div>
+    <aside class="panel cart" id="cart" aria-label="Корзина"></aside>
+  </div>
+  <div class="cart-bar" id="cart-bar" aria-live="polite"></div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand"><a class="logo" href="index.html"><svg aria-hidden="true"><use href="img/icons.svg#bean"/></svg>зерне</a><p class="muted">Кофейня в старом городе. Обжариваем зерно сами и готовим так, как ты любишь.</p></div>
+      <div class="footer__cols">
+        <ul class="footer__col"><li class="eyebrow">Адрес</li><li><svg class="icon" aria-hidden="true"><use href="img/icons.svg#pin"/></svg>Гродно, ул. Замковая, 12</li><li class="sub">5 минут от Старого замка</li></ul>
+        <ul class="footer__col"><li class="eyebrow">Часы</li><li><svg class="icon" aria-hidden="true"><use href="img/icons.svg#clock"/></svg>Пн–Пт 8:00–21:00</li><li class="sub">Сб–Вс 9:00–21:00</li></ul>
+        <ul class="footer__col"><li class="eyebrow">Связь</li><li><svg class="icon" aria-hidden="true"><use href="img/icons.svg#phone"/></svg>+375 29 000-00-00</li><li><svg class="icon" aria-hidden="true"><use href="img/icons.svg#telegram"/></svg>@zerne_coffee</li><li><svg class="icon" aria-hidden="true"><use href="img/icons.svg#instagram"/></svg>@zerne.grodno</li></ul>
+      </div>
+    </div>
+    <div class="footer__bottom"><span>© <span class="js-year">2026</span> Зерне · концепт сайта для портфолио. Кофейня вымышленная, фото сгенерированы нейросетью.</span><span>Дизайн и вёрстка — Дарья Поливкина</span></div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

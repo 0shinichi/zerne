@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Оформление предзаказа — Зерне</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Lora:ital,wght@0,500;1,500&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="header">
+  <div class="container header__inner">
+    <a class="logo" href="index.html" aria-label="Зерне — на главную"><svg aria-hidden="true"><use href="img/icons.svg#bean"/></svg>зерне</a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="menu.html">Меню</a><a href="index.html#preorder">Предзаказ</a><a href="index.html#breakfast">Завтраки</a><a href="index.html#events">События</a><a href="index.html#contacts">Контакты</a>
+    </nav>
+    <div class="header__actions">
+      <span class="badge js-open-badge">Открыто до 21:00</span>
+      <a class="round" href="menu.html#cart" aria-label="Корзина"><svg class="icon" aria-hidden="true"><use href="img/icons.svg#bag"/></svg><span class="count js-cart-count" data-zero></span></a>
+      <button class="round burger js-burger" type="button" aria-label="Открыть меню" aria-controls="mobile-nav"><svg class="icon" aria-hidden="true"><use href="img/icons.svg#burger"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <div class="mobile-nav__top"><a class="logo" href="index.html"><svg aria-hidden="true"><use href="img/icons.svg#bean"/></svg>зерне</a><button class="round js-nav-close" type="button" aria-label="Закрыть меню"><svg class="icon" aria-hidden="true"><use href="img/icons.svg#close"/></svg></button></div>
+  <nav class="mobile-nav__links" aria-label="Мобильная навигация"><a href="menu.html">Меню</a><a href="index.html#preorder">Предзаказ</a><a href="index.html#breakfast">Завтраки</a><a href="index.html#events">События</a><a href="index.html#contacts">Контакты</a></nav>
+  <span class="badge js-open-badge" style="justify-self:start">Открыто до 21:00</span>
+</div>
+
+<main>
+  <div class="container page-head">
+    <a class="back" href="menu.html"><svg class="icon" aria-hidden="true"><use href="img/icons.svg#arrow"/></svg>Вернуться в меню</a>
+    <h1 class="h2">Оформление предзаказа</h1>
+  </div>
+
+  <div class="container section section--tight-top" id="checkout-empty" hidden>
+    <div class="empty"><p class="h3" style="color:var(--espresso)">В заказе пока пусто</p><p>Выбери напиток в меню — и возвращайся сюда.</p><p style="margin-top:20px"><a class="btn btn--primary" href="menu.html">Открыть меню</a></p></div>
+  </div>
+
+  <form class="container checkout" id="checkout" novalidate hidden>
+    <div class="checkout__form" id="checkout-form-fields">
+      <section class="block">
+        <div class="block__head"><span class="hand">1</span><h2 class="h3">Когда заберёшь?</h2></div>
+        <div class="chips" id="time-chips" role="radiogroup" aria-label="Время выдачи"></div>
+        <p class="note"><svg class="icon" aria-hidden="true"><use href="img/icons.svg#clock"/></svg><span id="time-note"></span></p>
+      </section>
+      <section class="block">
+        <div class="block__head"><span class="hand">2</span><h2 class="h3">Как тебя зовут?</h2></div>
+        <div class="form__row">
+          <label class="field">Имя для стаканчика<input name="name" type="text" placeholder="Например, Даша" autocomplete="given-name" maxlength="20"><span class="field__error">Напиши имя — мы подпишем стаканчик</span></label>
+          <label class="field">Телефон<input name="phone" type="tel" placeholder="+375 29 123-45-67" autocomplete="tel" inputmode="tel"><span class="field__error">Нужен номер в формате +375 29 123-45-67</span></label>
+        </div>
+        <label class="field">Комментарий для бариста<input name="comment" type="text" placeholder="Например, «погорячее»" maxlength="120"></label>
+      </section>
+      <section class="block">
+        <div class="block__head"><span class="hand">3</span><h2 class="h3">Оплата</h2></div>
+        <div class="options">
+          <label class="option"><input type="radio" name="pay" value="online" checked><span><b>Онлайн картой</b><span class="small muted">Visa, Mastercard, Белкарт</span></span></label>
+          <label class="option"><input type="radio" name="pay" value="place"><span><b>На месте</b><span class="small muted">картой или наличными у стойки</span></span></label>
+        </div>
+      </section>
+    </div>
+    <aside class="panel summary" aria-label="Состав заказа">
+      <h2 class="h3">Твой заказ</h2>
+      <div class="cart-lines" id="summary-lines"></div>
+      <div class="divider"></div>
+      <div class="kv"><span>Напитки и еда</span><b class="js-total">0,00 BYN</b></div>
+      <div class="divider"></div>
+      <div class="kv kv--total"><span>К оплате</span><b class="js-total">0,00 BYN</b></div>
+      <button class="btn btn--primary btn--block" type="submit" id="pay-btn">Оплатить</button>
+      <div class="pickup"><svg class="icon" aria-hidden="true"><use href="img/icons.svg#pin"/></svg><div><span class="small muted" style="display:block">Заберёшь здесь</span><b class="small" style="font-weight:600">ул. Замковая, 12 · стойка выдачи</b></div></div>
+      <p class="concept-note">Это концепт для портфолио: заказ никуда не отправляется, оплата не проводится.</p>
+    </aside>
+  </form>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand"><a class="logo" href="index.html"><svg aria-hidden="true"><use href="img/icons.svg#bean"/></svg>зерне</a><p class="muted">Кофейня в старом городе. Обжариваем зерно сами и готовим так, как ты любишь.</p></div>
+      <div class="footer__cols">
+        <ul class="footer__col"><li class="eyebrow">Адрес</li><li><svg class="icon" aria-hidden="true"><use href="img/icons.svg#pin"/></svg>Гродно, ул. Замковая, 12</li><li class="sub">5 минут от Старого замка</li></ul>
+        <ul class="footer__col"><li class="eyebrow">Часы</li><li><svg class="icon" aria-hidden="true"><use href="img/icons.svg#clock"/></svg>Пн–Пт 8:00–21:00</li><li class="sub">Сб–Вс 9:00–21:00</li></ul>
+        <ul class="footer__col"><li class="eyebrow">Связь</li><li><svg class="icon" aria-hidden="true"><use href="img/icons.svg#phone"/></svg>+375 29 000-00-00</li><li><svg class="icon" aria-hidden="true"><use href="img/icons.svg#telegram"/></svg>@zerne_coffee</li><li><svg class="icon" aria-hidden="true"><use href="img/icons.svg#instagram"/></svg>@zerne.grodno</li></ul>
+      </div>
+    </div>
+    <div class="footer__bottom"><span>© <span class="js-year">2026</span> Зерне · концепт сайта для портфолио. Кофейня вымышленная, фото сгенерированы нейросетью.</span><span>Дизайн и вёрстка — Дарья Поливкина</span></div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
